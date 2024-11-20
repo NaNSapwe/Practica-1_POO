@@ -105,14 +105,7 @@ class Simulator:
         if act == glfw.PRESS and key == glfw.KEY_BACKSPACE:
             mj.mj_resetData(self.model, self.data)
             mj.mj_forward(self.model, self.data)
-    
-    def mouse_button(self, window, button, act, mods):
 
-        """Maneja los eventos de los botones del raton"""
-
-        self.button_left = (glfw.get_mouse_button(window, glfw.MOUSE_BUTTON_LEFT) == glfw.PRESS)
-        self.button_middle= (glfw.get_mouse_button(window, glfw.MOUSE_BUTTON_MIDDLE) == glfw.PRESS)
-        self.button_right= (glfw.get_mouse_button(window, glfw.MOUSE_BUTTON_RIGHT) == glfw.PRESS)
 
     def mouse_move(self, window, xpos, ypos):
 
@@ -150,6 +143,14 @@ class Simulator:
 
         action = mj.mjtMouse.mjMOUSE_ZOOM
         mj.mjv_moveCamera(self.mode, action, 0.0, -0.05 * yoffset, self.scene,self.cam)
+
+    def mouse_button(self, window, button, act, mods):
+
+        """Maneja los eventos de los botones del raton"""
+
+        self.button_left = (glfw.get_mouse_button(window, glfw.MOUSE_BUTTON_LEFT) == glfw.PRESS)
+        self.button_middle= (glfw.get_mouse_button(window, glfw.MOUSE_BUTTON_MIDDLE) == glfw.PRESS)
+        self.button_right= (glfw.get_mouse_button(window, glfw.MOUSE_BUTTON_RIGHT) == glfw.PRESS)
 
     def update_object_position(self):
 
